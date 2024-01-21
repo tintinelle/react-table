@@ -5,5 +5,5 @@ export const tableHeadersPropertyNames = [
   "age",
   "gender",
   "phone",
-  "address.city",
+  "address",
 ];

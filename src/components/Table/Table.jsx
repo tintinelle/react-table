@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import "./Table.css";
 import TableRow from "./TableRow/TableRow";
-import Search from "./Search/Search";
-import ModalWindow from "./ModalWindow/ModalWindow";
+import Search from "../Search/Search";
+import ModalWindow from "../ModalWindow/ModalWindow";
 import Dropdown from "./Dropdown/Dropdown";
 import {
   tableHeaders,
@@ -50,7 +50,6 @@ const Table = () => {
         // Если ширина меньше 50px, возвращаем прыдыдущее значение
         return `${col.ref.current.offsetWidth}px`;
       });
-
       // Применяем новые стили grid-template-columns
       tableElement.current.style.gridTemplateColumns = `${gridColumns.join(
         " "
@@ -102,7 +101,9 @@ const Table = () => {
 
   // Считаем высоту бордера столбца
   useEffect(() => {
-    setTableHeight(tableElement.current.offsetHeight);
+    if (users.users) {
+      setTableHeight(tableElement.current.offsetHeight);
+    }
   });
 
   // Вешаем слушателей, если столбец активен
@@ -118,18 +119,31 @@ const Table = () => {
 
   // Сортировка
   const sortUsers = (property, criterion) => {
+    console.log(users.users);
     let sortedData;
     setSortedFlag(true);
 
     if (criterion === "ascend") {
       sortedData = [...users.users].sort((a, b) =>
-        a[property] < b[property] ? -1 : 1
+        property === "address"
+          ? a.address.city < b.address.city
+            ? -1
+            : 1
+          : a[property] < b[property]
+          ? -1
+          : 1
       );
       setSortedUsers(sortedData);
     }
     if (criterion === "descend") {
       sortedData = [...users.users].sort((a, b) =>
-        a[property] < b[property] ? 1 : -1
+        property === "address"
+          ? a.address.city < b.address.city
+            ? 1
+            : -1
+          : a[property] < b[property]
+          ? 1
+          : -1
       );
       setSortedUsers(sortedData);
     }
