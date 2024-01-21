@@ -1,18 +1,13 @@
-import TableRow from "./TableRow/TableRow";
-import Search from "./Search/Search";
 import { useState, useEffect, useRef, useCallback } from "react";
 import "./Table.css";
+import TableRow from "./TableRow/TableRow";
+import Search from "./Search/Search";
 import ModalWindow from "./ModalWindow/ModalWindow";
 import Dropdown from "./Dropdown/Dropdown";
-
-const tableHeaders = ["Name", "Age", "Gender", "Phone", "Address"];
-const tableHeadersPropertyNames = [
-  "firstName",
-  "age",
-  "gender",
-  "phone",
-  "address.city",
-];
+import {
+  tableHeaders,
+  tableHeadersPropertyNames,
+} from "../../constants/TableConstants";
 
 const createHeaders = (headers) => {
   return headers.map((item) => ({
@@ -39,7 +34,6 @@ const Table = () => {
   // При клике на колонку задаем индекс активного столбца
   const mouseDown = (index) => {
     setActiveIndex(index);
-    console.log(columns);
   };
 
   // Изменение ширины столбца при перетаскивании мышью
@@ -155,7 +149,7 @@ const Table = () => {
         <ModalWindow user={userModal} onClick={() => setUserModal()} />
       )}
       {error ? (
-        <div> {error} Try again later!</div>
+        <div className={"noticement"}> {error} Try again later!</div>
       ) : (
         <div className={"table-wrapper"}>
           <table className={"table"} ref={tableElement}>
@@ -164,8 +158,8 @@ const Table = () => {
                 {/* Отрисовываем заголовки таблицы */}
                 {columns &&
                   columns.map(({ ref, text }, i) => (
-                    <th ref={ref} key={text}>
-                      <span>{text}</span>
+                    <th ref={ref} key={text} className="table__header-cell">
+                      <span className="table__header-name">{text}</span>
                       {text !== "Phone" && (
                         <Dropdown
                           onChange={(e) =>
@@ -175,23 +169,6 @@ const Table = () => {
                             )
                           }
                         />
-
-                        // <select
-                        //   onChange={(e) =>
-                        //     sortUsers(
-                        //       tableHeadersPropertyNames[i],
-                        //       e.target.value
-                        //     )
-                        //   }
-                        // >
-                        //   <option value="reset">No sorting</option>
-                        //   <option value="ascend">
-                        //     Sort in ascending order
-                        //   </option>
-                        //   <option value="descend">
-                        //     Sort in descending order
-                        //   </option>
-                        // </select>
                       )}
                       <div
                         style={{ height: tableHeight }}
@@ -207,7 +184,7 @@ const Table = () => {
 
             {/* Если идет загрузка, показываем это пользователю, если все загрузилось, выводим body таблицы */}
             {loading ? (
-              <div>Loading...</div>
+              <div className={"noticement"}>Loading...</div>
             ) : (
               <tbody>
                 {/* Проверяем, что отрисовать: отсортированный список или изначальный */}

@@ -1,0 +1,21 @@
+.dropdown {
+  width: 80%;
+  text-align: center;
+}
+
+select {
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 0.25em;
+  padding: 2px 0;
+  border: 1px solid lightgrey;
+  font-size: 12px;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: rgb(246, 235, 224);
+  text-overflow: ellipsis;
+}
+
+option {
+  background-color: #fff;
+}

@@ -1,0 +1,12 @@
+.search__wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto 10px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.search__title {
+  font-size: 1rem;
+}

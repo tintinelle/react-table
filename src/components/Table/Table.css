@@ -1,3 +1,11 @@
+/* * {
+  outline: 1px solid red;
+} */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 .table-wrapper {
   width: 100%;
   max-width: 1200px;
@@ -16,6 +24,20 @@
     minmax(150px, 0.7fr)
     minmax(150px, 1fr)
     minmax(150px, 1.5fr);
+  background-color: rgb(247, 242, 241);
+}
+
+.table__header-cell {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 10px;
+  background-color: rgb(246, 235, 224);
+}
+
+.table__header-name {
+  width: 100%;
 }
 
 table th {
@@ -65,4 +87,9 @@ table tr {
 
 .resize-handle.active {
   border-color: #517ea5;
+}
+
+.noticement {
+  margin: 30px auto;
+  font-size: 1.5rem;
 }

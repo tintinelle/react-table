@@ -1,9 +1,11 @@
-const Search = ({ value, onChange }) => {
+import "./Search.css";
+
+const Search = ({ onChange }) => {
   return (
-    <>
-      <h3>Search users:</h3>
+    <div className="search__wrapper">
+      <h3 className="search__title">Search users by name:</h3>
       <input onChange={onChange} />
-    </>
+    </div>
   );
 };
 
