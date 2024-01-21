@@ -1,5 +1,3 @@
-import "./TableRow.css";
-
 const TableRow = ({ user, onClick }) => {
   return (
     <tr onClick={onClick}>

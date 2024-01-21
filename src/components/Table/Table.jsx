@@ -81,6 +81,7 @@ const Table = () => {
         }
       })
       .then((response) => {
+        setSortedFlag(false);
         setUsers(response);
         setLoading(false);
       })
@@ -93,6 +94,7 @@ const Table = () => {
   useEffect(() => {
     let url;
     setError(null);
+
     value
       ? (url = `https://dummyjson.com/users/search?q=${value}`)
       : (url = "https://dummyjson.com/users");
@@ -119,7 +121,6 @@ const Table = () => {
 
   // Сортировка
   const sortUsers = (property, criterion) => {
-    console.log(users.users);
     let sortedData;
     setSortedFlag(true);
 
