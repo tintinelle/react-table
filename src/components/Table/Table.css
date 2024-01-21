@@ -1,0 +1,68 @@
+.table-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 25px;
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border: 1px solid #ccc;
+  overflow: auto;
+  display: grid;
+  grid-template-columns:
+    minmax(150px, 1.3fr)
+    minmax(150px, 0.7fr)
+    minmax(150px, 0.7fr)
+    minmax(150px, 1fr)
+    minmax(150px, 1.5fr);
+}
+
+table th {
+  position: relative;
+  font-size: 18px;
+}
+
+table th,
+table td {
+  text-align: left;
+  padding: 16px 20px;
+}
+
+table th span,
+table td span {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: block;
+  text-align: center;
+}
+
+table tr td {
+  border-block-start: 1px solid #ccc;
+}
+
+table thead,
+table tbody,
+table tr {
+  display: contents;
+}
+
+.resize-handle {
+  display: block;
+  position: absolute;
+  cursor: col-resize;
+  width: 7px;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  border-right: 3px solid transparent;
+}
+
+.resize-handle:hover {
+  border-color: #ccc;
+}
+
+.resize-handle.active {
+  border-color: #517ea5;
+}

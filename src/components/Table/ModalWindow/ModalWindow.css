@@ -1,0 +1,34 @@
+.wrapper {
+  position: fixed;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.modal-window {
+  position: relative;
+  padding: 20px;
+  background-color: aliceblue;
+  border-radius: 15px;
+  border: 1px solid gray;
+}
+
+.modal-window p {
+  font-weight: 600;
+}
+
+.modal-window p span {
+  font-weight: 400;
+}
+
+.modal-window__close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-color: aliceblue;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
