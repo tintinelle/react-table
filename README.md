@@ -1,3 +1,3 @@
-# Check the result here
+## Check the result here
 
 https://tintinelle.github.io/react-table/
